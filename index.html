@@ -6,422 +6,157 @@
 
   <title>Happy Birthday</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #0d0b0a;
-      color: #f5eee2;
-      font-family: Georgia, "Times New Roman", serif;
-      overflow-x: hidden;
-    }
-
-    .ambient {
-      position: fixed;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: .16;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .ambient-one {
-      top: -120px;
-      left: -100px;
-      background: #d8bd6a;
-    }
-
-    .ambient-two {
-      right: -120px;
-      bottom: -100px;
-      background: #8f7226;
-    }
-
-    section {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 50px 22px;
-    }
-
-    .hero-inner {
-      width: 100%;
-      max-width: 760px;
-    }
-
-    .eyebrow {
-      margin: 0 0 20px;
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #d8bd6a;
-    }
-
-    .gold-line {
-      width: 70px;
-      height: 1px;
-      margin: 0 auto 30px;
-      background: #d8bd6a;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(60px, 12vw, 120px);
-      line-height: .9;
-      font-weight: 400;
-      letter-spacing: -3px;
-    }
-
-    h1 span {
-      color: #d8bd6a;
-      font-style: italic;
-    }
-
-    .intro {
-      margin: 32px auto 42px;
-      max-width: 520px;
-      color: #d5cdc0;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .scroll-button {
-      border: 1px solid rgba(216, 189, 106, .65);
-      background: transparent;
-      color: #f5eee2;
-      padding: 14px 24px;
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: .3s ease;
-    }
-
-    .scroll-button:hover {
-      background: #d8bd6a;
-      color: #0d0b0a;
-    }
-
-    .arrow {
-      margin-left: 9px;
-      font-size: 15px;
-    }
-
-    /* VIDEO */
-
-    .video-section {
-      padding: 90px 20px;
-      text-align: center;
-      background: rgba(255,255,255,.012);
-    }
-
-    .video-inner {
-      width: 100%;
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .video-section h2,
-    .surprise-section h2 {
-      margin: 0 0 35px;
-      font-size: clamp(32px, 6vw, 54px);
-      font-weight: 400;
-      line-height: 1.15;
-    }
-
-    .video-wrapper {
-      width: 100%;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 7px;
-      border: 1px solid rgba(216,189,106,.45);
-      background: #050505;
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
-    }
-
-    .video-wrapper video {
-      display: block;
-      width: 100%;
-      height: auto;
-      background: #000;
-    }
-
-    /* MESSAGE */
-
-    .message-section {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 90px 22px;
-    }
-
-    .message-card {
-      width: 100%;
-      max-width: 700px;
-      padding: 55px 35px;
-      text-align: center;
-      border: 1px solid rgba(216,189,106,.25);
-      background: rgba(255,255,255,.025);
-      box-shadow: 0 25px 80px rgba(0,0,0,.25);
-    }
-
-    .ornament {
-      display: block;
-      margin-bottom: 30px;
-      color: #d8bd6a;
-      font-size: 25px;
-    }
-
-    .message-card p {
-      margin: 0 auto 24px;
-      max-width: 570px;
-      color: #ddd4c6;
-      font-size: 20px;
-      line-height: 1.8;
-    }
-
-    .message-card strong {
-      color: #f2d77f;
-      font-weight: 400;
-    }
-
-    /* CLOSING */
-
-    .surprise-section {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 90px 22px;
-    }
-
-    .surprise-inner {
-      width: 100%;
-      max-width: 700px;
-    }
-
-    .sparkle {
-      margin-top: 35px;
-      color: #d8bd6a;
-      font-size: 28px;
-    }
-
-    .brand-credit {
-      margin-top: 28px;
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: #b9aa83;
-      opacity: .75;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 600px) {
-
-      .hero {
-        padding: 40px 18px;
-      }
-
-      .eyebrow {
-        font-size: 9px;
-        letter-spacing: 3px;
-      }
-
-      .intro {
-        font-size: 16px;
-      }
-
-      .video-section,
-      .message-section,
-      .surprise-section {
-        padding: 70px 18px;
-      }
-
-      .video-wrapper {
-        padding: 5px;
-      }
-
-      .message-card {
-        padding: 42px 22px;
-      }
-
-      .message-card p {
-        font-size: 17px;
-      }
-
-      .brand-credit {
-        font-size: 9px;
-        letter-spacing: 3px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <!-- Ambient background -->
+  <div class="page">
 
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
-
-
-  <!-- HERO -->
-
-  <section class="hero" aria-label="Birthday greeting">
-
-    <div class="hero-inner">
-
-      <p class="eyebrow">
-        A LITTLE SOMETHING TO CELEBRATE YOU
-      </p>
-
-      <div class="gold-line"></div>
-
-      <h1>
-        Happy<br>
-        <span>Birthday</span>
-      </h1>
-
-      <p class="intro">
-        A special day deserves a beautiful moment.
-      </p>
-
-      <button
-        class="scroll-button"
-        type="button"
-        aria-label="Continue to birthday video"
-        onclick="document.querySelector('.video-section').scrollIntoView({behavior:'smooth'})"
-      >
-        <span>Discover</span>
-        <span class="arrow">↓</span>
-      </button>
-
-    </div>
-
-  </section>
+    <!-- Ambient background effects -->
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
 
 
-  <!-- VIDEO -->
+    <!-- HERO / OPENING -->
 
-  <section
-    class="video-section"
-    aria-label="Birthday video"
-  >
+    <section class="hero" aria-label="Birthday greeting">
 
-    <div class="video-inner">
+      <div class="hero-inner">
 
-      <p class="eyebrow">
-        A LITTLE SURPRISE
-      </p>
+        <p class="eyebrow">
+          A LITTLE SOMETHING TO CELEBRATE YOU
+        </p>
 
-      <div class="gold-line"></div>
+        <div class="gold-line"></div>
 
-      <h2>
-        A moment just for you
-      </h2>
+        <h1>
+          Happy<br>
+          <span>Birthday</span>
+        </h1>
 
-      <div class="video-wrapper">
+        <p class="intro">
+          A special day deserves a beautiful moment.
+        </p>
 
-        <video
-          controls
-          playsinline
-          preload="metadata"
+        <button
+          class="scroll-button"
+          type="button"
+          aria-label="Continue to birthday video"
+          onclick="document.querySelector('.video-section').scrollIntoView({ behavior: 'smooth' })"
         >
-          <source src="./sn.mp4" type="video/mp4">
-          Your browser does not support the video.
-        </video>
+          <span>Discover</span>
+          <span class="arrow">↓</span>
+        </button>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- MESSAGE -->
+    <!-- VIDEO SURPRISE -->
 
-  <section
-    class="message-section"
-    id="message"
-    aria-label="Birthday message"
-  >
+    <section
+      class="video-section"
+      aria-label="Birthday video"
+    >
 
-    <div class="message-card">
+      <div class="video-inner">
 
-      <span class="ornament">✦</span>
+        <p class="eyebrow">
+          A LITTLE SURPRISE
+        </p>
 
-      <p>
-        Wishing you a very
-        <strong>Happy Birthday!</strong>
-      </p>
+        <div class="gold-line"></div>
 
-      <p>
-        May the year ahead be filled with happiness
-        and wonderful moments.
-      </p>
+        <h2>
+          A moment just for you
+        </h2>
 
-      <p>
-        Warm wishes to you and your family
-        on this special day.
-      </p>
+        <div class="video-wrapper">
 
-    </div>
+          <video
+            controls
+            playsinline
+            preload="metadata"
+          >
+            <source src="./sn.mp4" type="video/mp4">
+            Your browser does not support the video.
+          </video>
 
-  </section>
+        </div>
 
-
-  <!-- CLOSING -->
-
-  <section
-    class="surprise-section"
-    aria-label="Birthday wishes"
-  >
-
-    <div class="surprise-inner">
-
-      <p class="eyebrow">
-        WITH WARMEST WISHES
-      </p>
-
-      <div class="gold-line"></div>
-
-      <h2>
-        A beautiful year ahead
-      </h2>
-
-      <div class="sparkle">✦</div>
-
-      <div class="brand-credit">
-        CVP CREATIONS
       </div>
 
-    </div>
+    </section>
 
-  </section>
+
+    <!-- BIRTHDAY MESSAGE -->
+
+    <section
+      class="message-section"
+      id="message"
+      aria-label="Birthday message"
+    >
+
+      <div class="message-card">
+
+        <span class="ornament">✦</span>
+
+        <p>
+          Wishing you a very
+          <strong>Happy Birthday!</strong>
+        </p>
+
+        <p>
+          May the year ahead be filled with happiness
+          and wonderful moments.
+        </p>
+
+        <p>
+          Warm wishes to you and your family
+          on this special day.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLOSING -->
+
+    <section
+      class="surprise-section"
+      aria-label="Birthday wishes"
+    >
+
+      <div class="surprise-inner">
+
+        <p class="eyebrow">
+          WITH WARMEST WISHES
+        </p>
+
+        <div class="gold-line"></div>
+
+        <h2>
+          A beautiful year ahead
+        </h2>
+
+        <div class="sparkle">
+          ✦
+        </div>
+
+        <div class="brand-credit">
+          CVP CREATIONS
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="./script.js"></script>
 
 </body>
 </html>
