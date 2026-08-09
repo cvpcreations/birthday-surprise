@@ -9,17 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
      ----------------------------------------- */
 
   const scrollButton = document.querySelector(".scroll-button");
-  const messageSection = document.querySelector("#message");
+  const videoSection = document.querySelector(".video-section");
 
-  if (scrollButton && messageSection) {
+  if (scrollButton && videoSection) {
+
     scrollButton.addEventListener("click", () => {
 
-      messageSection.scrollIntoView({
+      videoSection.scrollIntoView({
         behavior: "smooth",
         block: "center"
       });
 
+      scrollButton.blur();
+
     });
+
   }
 
 
@@ -53,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     revealObserver.observe(messageCard);
+
   }
 
 
@@ -92,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           ticking = true;
+
         }
 
       },
