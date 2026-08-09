@@ -1,0 +1,729 @@
+/* =========================================
+   BIRTHDAY SURPRISE — MAIN STYLESHEET
+   ========================================= */
+
+:root {
+  --bg: #080808;
+  --bg-soft: #0d0d0d;
+  --text: #f5f1e8;
+  --text-soft: rgba(245, 241, 232, 0.68);
+  --gold: #d6b56c;
+  --gold-soft: rgba(214, 181, 108, 0.45);
+  --gold-faint: rgba(214, 181, 108, 0.12);
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Montserrat", Arial, sans-serif;
+}
+
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--gold);
+  color: #080808;
+}
+
+
+/* =========================================
+   PAGE
+   ========================================= */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(214, 181, 108, 0.07),
+      transparent 35%
+    ),
+    var(--bg);
+}
+
+
+/* =========================================
+   AMBIENT LIGHT
+   ========================================= */
+
+.ambient {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.ambient-one {
+  top: -220px;
+  left: -180px;
+  background: var(--gold);
+}
+
+.ambient-two {
+  right: -220px;
+  bottom: -200px;
+  background: #9d7b37;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+  position: relative;
+  z-index: 1;
+
+  min-height: 100svh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 24px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.55)
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+
+  border: 1px solid rgba(214, 181, 108, 0.13);
+
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+
+  max-width: 850px;
+}
+
+
+/* =========================================
+   EYEBROW
+   ========================================= */
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.38em;
+  line-height: 1.7;
+
+  color: var(--gold);
+
+  opacity: 0;
+
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.2s;
+}
+
+
+/* =========================================
+   GOLD LINE
+   ========================================= */
+
+.gold-line {
+  width: 70px;
+  height: 1px;
+
+  margin: 22px auto 30px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+
+  transform: scaleX(0);
+
+  animation: lineReveal 1.2s ease forwards;
+  animation-delay: 0.65s;
+}
+
+
+/* =========================================
+   MAIN TITLE
+   ========================================= */
+
+h1 {
+  font-family: var(--serif);
+
+  font-size: clamp(72px, 14vw, 150px);
+
+  font-weight: 400;
+  line-height: 0.76;
+
+  letter-spacing: -0.035em;
+
+  color: var(--text);
+
+  opacity: 0;
+
+  animation: titleReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+
+  animation-delay: 0.45s;
+}
+
+h1 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.intro {
+  margin-top: 42px;
+
+  font-family: var(--sans);
+
+  font-size: 12px;
+  line-height: 1.8;
+
+  letter-spacing: 0.08em;
+
+  color: var(--text-soft);
+
+  opacity: 0;
+
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 1.1s;
+}
+
+
+/* =========================================
+   DISCOVER BUTTON
+   ========================================= */
+
+.scroll-button {
+  margin-top: 55px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 13px 20px;
+
+  border: 1px solid rgba(214, 181, 108, 0.35);
+
+  background: rgba(255, 255, 255, 0.015);
+
+  color: var(--text-soft);
+
+  cursor: pointer;
+
+  font-size: 9px;
+  font-weight: 400;
+
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  transition:
+    border-color 0.4s ease,
+    background 0.4s ease,
+    color 0.4s ease,
+    transform 0.4s ease;
+
+  opacity: 0;
+
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 1.45s;
+}
+
+.scroll-button:hover {
+  border-color: var(--gold);
+  background: var(--gold-faint);
+  color: var(--text);
+
+  transform: translateY(-3px);
+}
+
+.arrow {
+  color: var(--gold);
+
+  font-size: 14px;
+
+  animation: gentleDown 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================
+   MESSAGE SECTION
+   ========================================= */
+
+.message-section {
+  position: relative;
+  z-index: 1;
+
+  min-height: 85svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 24px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(214, 181, 108, 0.055),
+      transparent 50%
+    );
+}
+
+.message-section::before,
+.message-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 1px;
+  height: 90px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--gold-soft),
+    transparent
+  );
+}
+
+.message-section::before {
+  left: 50%;
+  top: 0;
+}
+
+.message-section::after {
+  left: 50%;
+  bottom: 0;
+}
+
+
+.message-card {
+  position: relative;
+
+  width: min(720px, 100%);
+
+  padding: 70px 40px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(214, 181, 108, 0.22);
+  border-bottom: 1px solid rgba(214, 181, 108, 0.22);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.018),
+      rgba(255, 255, 255, 0)
+    );
+
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.message-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   ORNAMENT
+   ========================================= */
+
+.ornament {
+  display: block;
+
+  margin-bottom: 40px;
+
+  color: var(--gold);
+
+  font-size: 15px;
+
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+
+/* =========================================
+   MESSAGE TYPOGRAPHY
+   ========================================= */
+
+.message-card p {
+  max-width: 620px;
+
+  margin: 0 auto 25px;
+
+  font-family: var(--serif);
+
+  font-size: clamp(25px, 4vw, 37px);
+
+  line-height: 1.35;
+
+  font-weight: 400;
+
+  color: var(--text);
+}
+
+.message-card p:last-child {
+  margin-bottom: 0;
+}
+
+.message-card strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.heart {
+  display: inline-block;
+
+  color: var(--gold);
+
+  font-size: 0.65em;
+
+  margin-left: 4px;
+}
+
+
+/* =========================================
+   CLOSING SECTION
+   ========================================= */
+
+.surprise-section {
+  position: relative;
+  z-index: 1;
+
+  min-height: 65svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 24px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      ellipse at center bottom,
+      rgba(214, 181, 108, 0.08),
+      transparent 55%
+    );
+}
+
+.surprise-inner {
+  max-width: 650px;
+}
+
+.surprise-section .gold-line {
+  margin-bottom: 35px;
+}
+
+h2 {
+  font-family: var(--serif);
+
+  font-size: clamp(45px, 7vw, 80px);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: var(--text);
+
+  margin-bottom: 30px;
+}
+
+.closing {
+  font-size: 12px;
+
+  line-height: 2;
+
+  letter-spacing: 0.06em;
+
+  color: var(--text-soft);
+
+  max-width: 520px;
+
+  margin: 0 auto;
+}
+
+.sparkle {
+  margin-top: 50px;
+
+  color: var(--gold);
+
+  font-size: 18px;
+
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes lineReveal {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+
+@keyframes gentleDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+   ========================================= */
+
+@media (min-width: 700px) {
+
+  .hero {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .message-card {
+    padding: 90px 70px;
+  }
+
+  .message-card p {
+    margin-bottom: 30px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 100svh;
+
+    padding: 35px 22px;
+  }
+
+  .hero::before {
+    inset: 12px;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.28em;
+  }
+
+  .gold-line {
+    width: 55px;
+    margin-top: 18px;
+    margin-bottom: 25px;
+  }
+
+  h1 {
+    font-size: clamp(68px, 21vw, 105px);
+    line-height: 0.78;
+  }
+
+  .intro {
+    margin-top: 32px;
+
+    font-size: 10px;
+
+    padding: 0 25px;
+  }
+
+  .scroll-button {
+    margin-top: 45px;
+  }
+
+  .message-section {
+    min-height: 90svh;
+
+    padding: 80px 20px;
+  }
+
+  .message-card {
+    padding: 55px 22px;
+  }
+
+  .message-card p {
+    font-size: 25px;
+    line-height: 1.3;
+
+    margin-bottom: 23px;
+  }
+
+  .ornament {
+    margin-bottom: 32px;
+  }
+
+  .surprise-section {
+    min-height: 65svh;
+
+    padding: 80px 25px;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  .closing {
+    font-size: 10px;
+    line-height: 1.9;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 360px) {
+
+  h1 {
+    font-size: 64px;
+  }
+
+  .message-card p {
+    font-size: 23px;
+  }
+
+  .message-card {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
