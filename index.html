@@ -1,182 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Ambient background effects -->
 
-  <title>Happy Birthday</title>
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
 
-  <link rel="stylesheet" href="./style.css">
-</head>
+<!-- =========================================
+     HERO / OPENING
+     ========================================= -->
 
-<body>
+<section class="hero" aria-label="Birthday greeting">
 
-  <div class="page">
+  <div class="hero-inner">
 
-    <!-- Ambient background effects -->
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
+```
+<p class="eyebrow">
+  A LITTLE SOMETHING TO CELEBRATE YOU
+</p>
 
+<div class="gold-line"></div>
 
-    <!-- =========================================
-         HERO / OPENING
-         ========================================= -->
+<h1>
+  Happy<br>
+  <span>Birthday</span>
+</h1>
 
-    <section
-      class="hero"
-      aria-label="Birthday greeting"
-    >
+<p class="intro">
+  A special day deserves a beautiful moment.
+</p>
 
-      <div class="hero-inner">
-
-        <p class="eyebrow">
-          A LITTLE SOMETHING TO CELEBRATE YOU
-        </p>
-
-        <div class="gold-line"></div>
-
-        <h1>
-          Happy<br>
-          <span>Birthday</span>
-        </h1>
-
-        <p class="intro">
-          A special day deserves a beautiful moment.
-        </p>
-
-        <button
-          class="scroll-button"
-          type="button"
-          aria-label="Continue to birthday video"
-          onclick="document.querySelector('.video-section').scrollIntoView({behavior:'smooth'})"
-        >
-          <span>Discover</span>
-          <span class="arrow">↓</span>
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         VIDEO SURPRISE
-         ========================================= -->
-
-    <section
-      class="video-section"
-      aria-label="Birthday video"
-    >
-
-      <div class="video-inner">
-
-        <p class="eyebrow">
-          A LITTLE SURPRISE
-        </p>
-
-        <div class="gold-line"></div>
-
-        <h2>
-          A moment just for you
-        </h2>
-
-        <div class="video-wrapper">
-
-          <video
-            controls
-            playsinline
-            preload="metadata"
-          >
-            <source src="./sn.mp4" type="video/mp4">
-            Your browser does not support the video.
-          </video>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         BIRTHDAY MESSAGE
-         ========================================= -->
-
-    <section
-      class="message-section"
-      id="message"
-      aria-label="Birthday message"
-    >
-
-      <div class="message-card">
-
-        <span class="ornament">✦</span>
-
-        <p>
-          Wishing you a very
-          <strong>Happy Birthday!</strong>
-        </p>
-
-        <p>
-          May the year ahead be filled with happiness
-          and wonderful moments.
-        </p>
-
-        <p>
-          Warm wishes to you and your family
-          on this special day.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================================
-         CLOSING
-         ========================================= -->
-
-    <section
-      class="surprise-section"
-      aria-label="Birthday wishes"
-    >
-
-      <div class="surprise-inner">
-
-        <p class="eyebrow">
-          WITH WARMEST WISHES
-        </p>
-
-        <div class="gold-line"></div>
-
-        <h2>
-          A beautiful year ahead
-        </h2>
-
-        <div class="sparkle">✦</div>
-
-        <div
-          class="brand-credit"
-          style="
-            margin-top: 35px;
-            font-family: var(--sans);
-            letter-spacing: 0.35em;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--gold);
-          "
-        >
-          CVP CREATIONS
-        </div>
-
-      </div>
-
-    </section>
+<button
+  class="scroll-button"
+  type="button"
+  aria-label="Continue to birthday message"
+>
+  <span>Discover</span>
+  <span class="arrow">↓</span>
+</button>
+```
 
   </div>
 
+</section>
 
-  <script src="./script.js"></script>
+<!-- =========================================
+     BIRTHDAY MESSAGE
+     ========================================= -->
 
-</body>
-</html>
+<section
+  class="message-section"
+  id="message"
+  aria-label="Birthday message"
+>
+
+  <div class="message-card">
+
+```
+<span class="ornament">✦</span>
+
+<p>
+  Wishing you a very
+  <strong>Happy Birthday!</strong>
+</p>
+
+<p>
+  May the year ahead be filled with happiness
+  and wonderful moments.
+</p>
+
+<p>
+  Warm wishes to you and your family
+  on this special day.
+</p>
+```
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     VIDEO SURPRISE
+     ========================================= -->
+
+<section
+  class="video-section"
+  aria-label="Birthday video"
+>
+
+  <div class="video-inner">
+
+```
+<p class="eyebrow">
+  A LITTLE SURPRISE
+</p>
+
+<div class="gold-line"></div>
+
+<h2>
+  A moment just for you
+</h2>
+
+<div class="video-wrapper">
+
+  <video
+    controls
+    playsinline
+    preload="metadata"
+  >
+    <source src="./sn.mp4" type="video/mp4">
+    Your browser does not support the video.
+  </video>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     CLOSING
+     ========================================= -->
+
+<section
+  class="surprise-section"
+  aria-label="Birthday wishes"
+>
+
+  <div class="surprise-inner">
+
+```
+<p class="eyebrow">
+  WITH WARMEST WISHES
+</p>
+
+<div class="gold-line"></div>
+
+<h2>
+  A beautiful year ahead
+</h2>
+
+<div class="sparkle">✦</div>
+```
+
+  </div>
+
+</section>
