@@ -5,7 +5,18 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* -----------------------------------------
-     DISCOVER BUTTON
+     ALWAYS START PAGE AT TOP
+     ----------------------------------------- */
+
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  window.scrollTo(0, 0);
+
+
+  /* -----------------------------------------
+     DISCOVER BUTTON → VIDEO
      ----------------------------------------- */
 
   const scrollButton = document.querySelector(".scroll-button");
@@ -13,16 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (scrollButton && videoSection) {
 
-    scrollButton.addEventListener("click", () => {
+    scrollButton.addEventListener("click", (event) => {
+
+      event.preventDefault();
+      event.stopPropagation();
 
       videoSection.scrollIntoView({
         behavior: "smooth",
-        block: "center"
+        block: "start"
       });
 
       scrollButton.blur();
 
-    });
+    }, true);
 
   }
 
@@ -103,19 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       { passive: true }
     );
-
-  }
-
-
-  /* -----------------------------------------
-     PREVENT BUTTON FOCUS OUTLINE AFTER TAP
-     ----------------------------------------- */
-
-  if (scrollButton) {
-
-    scrollButton.addEventListener("click", () => {
-      scrollButton.blur();
-    });
 
   }
 
